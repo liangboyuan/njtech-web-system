@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {include file="public/title"}
+    <link href="__INDEX__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__INDEX__/css/bootstrap-theme.css" rel="stylesheet">
+    <link rel='stylesheet' href='__INDEX__/css/style.css'>
+    <script src="__INDEX__/js/jquery.min.js"></script>
+    <script src="__INDEX__/js/bootstrap.js"></script>
+    <script src="__INDEX__/js/npm.js"></script>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+        }
+        .navbar{
+            background-color: #0093dd;
+            color: white;
+        }
+        .dropdown-toggle{
+            background-color: #0093dd;
+            color: white;
+        }
+        .navbar-brand{
+            color: white;
+            background-color: #0093dd;
+        }
+        #myCarousel{
+            width:100%;
+            margin:auto;
+            margin-top: -1em;
+        }
+        h4{
+            color: #0093dd;
+        }
+        .mess{
+            width: 100%;
+        }
+        #myCarousel{
+            width: 100%;
+        }
+        .dropdown{
+            margin:auto;
+        }
+
+    </style>
+    <style type="text/css">
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #fff;
+        }
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+    </style>
+    <style>
+        @media screen and (max-width: 768px) and (min-width: 320px) {
+            .pic{
+                display: none;
+            }
+
+        }
+
+        /* Extra Small Devices, Phones */
+        @media screen and (max-width: 992px) and (min-width: 768px) {
+            .pic{
+                display: none;
+            }
+
+        }
+        @media only screen and (max-width: 1200px) and (min-width : 992px) {
+            .pic{
+                display: none;
+            }
+        }
+
+
+        /* Large Devices, Wide Screens */
+        @media only screen and (min-width : 1200px) {
+
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(function () {
+        $(".dropdown").mouseover(function () {
+            $(this).addClass("open");
+        });
+        $(".dropdown").mouseleave(function(){
+            $(this).removeClass("open");
+        })
+    })
+    $(function () {
+        $(".dropdown-toggle").mouseover(function () {
+            $(this).addClass("open");
+        });
+        $(".dropdown-toggle").mouseleave(function(){
+            $(this).removeClass("open");
+        })
+    })
+</script>
+<div class="container-fluid" style="margin: 0px;padding: 0px;">
+
+
+    <!--导航栏开始-->
+    {include file="public/top"}
+
+    <!--导航栏结束-->
+
+    <!--主体部分开始-->
+    <div class="container body-content mycontent">
+        <!--面包屑导航和搜索框开始-->
+        <div class="row">
+            <div class="col-md-9">
+                <ol class="breadcrumb">
+                    <li><a href="{:url('index/index')}">网站首页</a></li>
+                    <li class="active">教学公告</li>
+                </ol>
+            </div>
+            <div class="col-md-3">
+                <form class="form-inline" action="{:url('search/index')}" method="get" role="form"style="">
+                    <div class="form-group">
+                        <input type="text" name="keywords" class="form-control" id="keywords" placeholder="请输入关键词" style="width: 80%;float: left;">
+                        <button type="submit" class="btn btn-primary" style="color: #FFFFFF;float: left;height: 35px;">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--<div class="row" style="margin-top: 5px;">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <h4><span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="float: left;margin-right: 10px"></span>机构设置</h4>
+                </div>
+                <div class="container-fluid" style="height: 2px;background: #0093dd;margin-top: 5px;margin-bottom: 5px"></div>
+            </div>
+        </div>-->
+        <!--面包屑导航和搜索框结束-->
+
+        <!--左侧子导航和右侧列表开始-->
+        <div class="row" style="margin-top: 10px">
+
+            <!--左侧列表开始-->
+            <!--<div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-11">
+                        <ul class="nav nav-pills nav-stacked" style="width: 100%">
+                            <li role="presentation" class="active"><a href="#">部领导</a></li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    各科室<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li role="presentation"><a href="#">综合事务科</a></li>
+                                    <li role="presentation"><a href="#">专业建设科</a></li>
+                                    <li role="presentation"><a href="#">教学运行科</a></li>
+                                    <li role="presentation"><a href="#">实践教学科</a></li>
+                                    <li role="presentation"><a href="#">学业事务科</a></li>
+                                    <li role="presentation"><a href="#">学生交流科</a></li>
+                                    <li role="presentation"><a href="#">教学评价科</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    挂靠机构<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li role="presentation"><a href="#">现代教育中心</a></li>
+                                    <li role="presentation"><a href="#">教师（教学）发展中心</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row pic" style="margin-top: 10px">
+                    <div class="col-md-11">
+                        <img src="__INDEX__/images/view.jpg" class="img-responsive" alt="Responsive image">
+                    </div>
+                </div>
+            </div>-->
+            <!--左侧列表结束-->
+
+            <!--右侧子导航开始-->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">综合事务科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 260px;">
+                                <table class="table">
+                                    {volist name="article1" id="article1"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article1['id']))}"><?php echo mb_substr($article1['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article1['id']))}">{$article1.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article1['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">专业建设科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 260px">
+                                <table class="table">
+                                    {volist name="article2" id="article2"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article2['id']))}"><?php echo mb_substr($article2['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article2['id']))}">{$article2.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article2['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">教学运行科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article3" id="article3"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article3['id']))}"><?php echo mb_substr($article3['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article3['id']))}">{$article3.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article3['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">实践教学科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article4" id="article4"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article4['id']))}"><?php echo mb_substr($article4['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article4['id']))}">{$article4.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article4['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">学业事务科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article5" id="article5"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article5['id']))}"><?php echo mb_substr($article5['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article5['id']))}">{$article5.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article5['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel " >
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">学生交流科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article6" id="article6"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article6['id']))}"><?php echo mb_substr($article6['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article6['id']))}">{$article6.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article6['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel ">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">教学评价科</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article7" id="article7"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article7['id']))}"><?php echo mb_substr($article7['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article7['id']))}">{$article7.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article7['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel ">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">现代教学中心</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article8" id="article8"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article8['id']))}"><?php echo mb_substr($article8['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article8['id']))}">{$article8.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article8['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"style="margin-top: 3px;margin-bottom: 3px;">
+                        <div class="panel ">
+                            <div class="panel-heading" style="background-color: #265CB4;color: white;">
+                                <h3 class="panel-title">教师（教学）发展中心</h3>
+                            </div>
+                            <div class="panel-body" style="min-height: 300px">
+                                <table class="table">
+                                    {volist name="article9" id="article9"}
+                                    <tr>
+                                        <td><a href="{:url(('article2/index'),array('cateid'=>$article9['id']))}"><?php echo mb_substr($article9['title'], 0,32,'utf-8'); ?></a></td>
+                                        <td width="90px"><a href="{:url(('article2/index'),array('cateid'=>$article9['id']))}">{$article9.time|date="Y-m-d",###}</a></td>
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                <div style="text-align: right;margin-right: 10px;"><a href="{:url(('newlst/index'),array('k_id'=>$article9['k_id']))}">more>></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--右侧子导航结束-->
+        </div>
+
+    </div>
+
+    {include file="public/foot"}
+</div>
+<!--底部导航栏-->
+
+
+<!--底部导航栏-->
+</body>
+</html>
